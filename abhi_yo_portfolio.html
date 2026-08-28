@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABHI//YO | Portfolio</title>
+<style>
+:root{--bg:#030712;--panel:#081224;--text:#eef7ff;--muted:#8ba0bd;--cyan:#00e5ff;--blue:#2f8cff;--violet:#8b5cf6;--line:rgba(0,229,255,.16)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+canvas{position:fixed;inset:0;z-index:-3}
+.glow{position:fixed;width:38vw;height:38vw;border-radius:50%;filter:blur(110px);opacity:.12;z-index:-2}
+.g1{background:var(--cyan);top:-15vw;left:-12vw}.g2{background:var(--violet);bottom:-18vw;right:-12vw}
+nav{position:sticky;top:14px;z-index:50;width:min(1150px,92%);margin:14px auto;padding:13px 18px;border:1px solid var(--line);border-radius:18px;background:rgba(4,10,24,.74);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:950;letter-spacing:2px}.logo b{color:var(--cyan)}
+nav a{color:var(--muted);text-decoration:none;margin-left:17px;font-size:.9rem}nav a:hover{color:var(--cyan)}
+.hero{width:min(1150px,92%);min-height:86vh;margin:auto;display:grid;place-items:center;text-align:center}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);padding:8px 14px;border-radius:999px;color:var(--cyan);font:700 .78rem monospace;letter-spacing:1px}
+.dot{width:8px;height:8px;border-radius:50%;background:#48ff9b;box-shadow:0 0 16px #48ff9b}
+h1{font-size:clamp(3.4rem,10vw,8rem);line-height:.88;letter-spacing:-5px;margin:24px 0}
+.grad{background:linear-gradient(90deg,#fff,var(--cyan),#8d79ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:760px;color:var(--muted);font-size:clamp(1rem,2vw,1.18rem);line-height:1.8}
+.type{font:600 1rem monospace;color:var(--cyan);min-height:30px;margin:20px}
+.cursor{display:inline-block;width:9px;height:1.1em;background:var(--cyan);vertical-align:-2px;animation:blink 1s infinite}@keyframes blink{50%{opacity:0}}
+.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.btn{padding:13px 20px;border-radius:13px;color:white;text-decoration:none;font-weight:750;border:1px solid var(--line);background:rgba(10,21,40,.8)}.primary{border:none;background:linear-gradient(90deg,var(--blue),var(--violet))}
+.section{width:min(1150px,92%);margin:105px auto}.kicker{font:700 .78rem monospace;letter-spacing:2px;color:var(--cyan)}h2{font-size:clamp(2rem,5vw,3.6rem);margin:8px 0 25px;letter-spacing:-1px}
+.card{background:linear-gradient(145deg,rgba(11,24,48,.92),rgba(5,12,28,.88));border:1px solid var(--line);border-radius:24px;padding:28px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.terminal{font-family:monospace;line-height:1.9}.green{color:#56ffad}.cyan{color:var(--cyan)}
+.skillgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.skill{border:1px solid var(--line);background:rgba(8,18,38,.72);border-radius:20px;padding:22px;transition:.3s;min-height:130px}.skill:hover{transform:translateY(-8px);box-shadow:0 18px 55px rgba(0,229,255,.12);border-color:rgba(0,229,255,.6)}.skill .icon{font-size:2rem}.skill strong{display:block;margin-top:10px}.skill small{color:var(--muted)}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:18px}.project{min-height:285px;position:relative;overflow:hidden}.project:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-80px;top:-80px;background:radial-gradient(circle,rgba(0,229,255,.18),transparent 70%)}.tag{display:inline-block;border:1px solid var(--line);color:var(--cyan);padding:5px 10px;border-radius:999px;font-size:.78rem;margin:5px 4px 0 0}
+.timeline{position:relative}.step{display:grid;grid-template-columns:110px 1fr;gap:20px;margin:18px 0}.num{font:700 1.1rem monospace;color:var(--cyan)}.step .box{border-left:2px solid var(--cyan);padding:8px 0 8px 20px}.step p{color:var(--muted);margin-top:4px}
+.terminalbox{font-family:monospace;white-space:pre-wrap;color:#d9efff;overflow:auto}
+.contact{text-align:center}.social{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+footer{text-align:center;color:var(--muted);padding:70px 20px;border-top:1px solid var(--line)}
+@media(max-width:780px){nav .links{display:none}.grid2,.projects{grid-template-columns:1fr}.skillgrid{grid-template-columns:repeat(2,1fr)}h1{letter-spacing:-2px}.step{grid-template-columns:75px 1fr}}
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas><div class="glow g1"></div><div class="glow g2"></div>
+
+<nav>
+<div class="logo">ABHI<b>//</b>YO</div>
+<div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#roadmap">Roadmap</a></div>
+</nav>
+
+<main>
+<section class="hero">
+<div>
+<div class="badge"><span class="dot"></span> SYSTEM ONLINE • PORTFOLIO v2.0</div>
+<h1>ABHI<b style="color:#00e5ff">//</b><span class="grad">YO</span></h1>
+<p>Abhijeet Chavan • B.Tech Computer Science & Engineering Student<br>Building my journey with code, technology and Artificial Intelligence.</p>
+<div class="type"><span id="typing"></span><span class="cursor"></span></div>
+<div class="buttons"><a class="btn primary" href="#projects">Explore My Projects</a><a class="btn" href="https://github.com/ypatil-01" target="_blank">GitHub Profile ↗</a></div>
+</div>
+</section>
+
+<section id="about" class="section">
+<div class="kicker">01 // ABOUT_ME</div><h2>Learning. Building. Evolving.</h2>
+<div class="grid2">
+<div class="card"><p style="line-height:1.9;color:var(--muted)">I am focused on learning technology properly from the foundation. My goal is to understand how software works, improve my problem-solving ability, create real projects and gradually move deeper into Artificial Intelligence and Machine Learning.</p><br><p><b>Mission:</b> Learn → Build → Make mistakes → Improve → Build again.</p></div>
+<div class="card terminal"><span class="green">abhi@yo</span>:<span class="cyan">~</span>$ whoami<br>&gt; B.Tech CSE Student<br><br><span class="green">abhi@yo</span>:<span class="cyan">~</span>$ current_focus<br>&gt; Programming Fundamentals<br>&gt; Python & C Programming<br>&gt; Software Development<br>&gt; Artificial Intelligence<br><br><span class="green">&gt; STATUS: READY TO BUILD 🚀</span></div>
+</div>
+</section>
+
+<section id="skills" class="section">
+<div class="kicker">02 // TECH_STACK</div><h2>My Technology Journey</h2>
+<div class="skillgrid">
+<div class="skill"><div class="icon">🐍</div><strong>Python</strong><small>Programming foundation</small></div>
+<div class="skill"><div class="icon">🔤</div><strong>C Programming</strong><small>Core concepts and logic</small></div>
+<div class="skill"><div class="icon">🧠</div><strong>Problem Solving</strong><small>Thinking step by step</small></div>
+<div class="skill"><div class="icon">🐙</div><strong>Git & GitHub</strong><small>Version control journey</small></div>
+<div class="skill"><div class="icon">🌐</div><strong>Web Development</strong><small>HTML, CSS & JavaScript</small></div>
+<div class="skill"><div class="icon">🗄️</div><strong>Databases & SQL</strong><small>Understanding data systems</small></div>
+<div class="skill"><div class="icon">🤖</div><strong>Artificial Intelligence</strong><small>Exploring intelligent systems</small></div>
+<div class="skill"><div class="icon">📈</div><strong>Machine Learning</strong><small>Future learning direction</small></div>
+</div>
+</section>
+
+<section id="projects" class="section">
+<div class="kicker">03 // PROJECT_LAB</div><h2>Ideas Worth Building</h2>
+<div class="projects">
+<article class="card project"><div class="kicker">PROJECT_01</div><h3 style="font-size:2rem;margin:12px 0">🎙️ SWARA</h3><p style="color:var(--muted)">A personal AI assistant concept designed around natural voice interaction, multilingual conversations and helpful everyday assistance.</p><div style="margin-top:18px"><span class="tag">Voice AI</span><span class="tag">Marathi</span><span class="tag">Hindi</span><span class="tag">English</span></div></article>
+<article class="card project"><div class="kicker">PROJECT_02</div><h3 style="font-size:2rem;margin:12px 0">🎓 AI Classroom Assistant</h3><p style="color:var(--muted)">A concept for helping students understand classroom content, generate notes and receive explanations in multiple languages.</p><div style="margin-top:18px"><span class="tag">Education</span><span class="tag">AI</span><span class="tag">Notes</span><span class="tag">Learning</span></div></article>
+</div>
+</section>
+
+<section id="roadmap" class="section">
+<div class="kicker">04 // EVOLUTION_PATH</div><h2>Roadmap</h2>
+<div class="card timeline">
+<div class="step"><div class="num">01</div><div class="box"><b>FOUNDATIONS</b><p>Programming • C • Python • Computer Science Basics • Problem Solving</p></div></div>
+<div class="step"><div class="num">02</div><div class="box"><b>DEVELOPMENT</b><p>Web Development • Databases • SQL • Data Structures • Real Projects</p></div></div>
+<div class="step"><div class="num">03</div><div class="box"><b>INTELLIGENT SYSTEMS</b><p>Artificial Intelligence • Machine Learning • AI Applications</p></div></div>
+<div class="step"><div class="num">04</div><div class="box"><b>BUILD</b><p>Turn knowledge into useful real-world technology 🚀</p></div></div>
+</div>
+</section>
+
+<section class="section contact">
+<div class="kicker">05 // CONNECT</div><h2>Follow The Journey</h2>
+<p style="color:var(--muted)">Learning today. Building tomorrow.</p>
+<div class="social"><a class="btn primary" href="https://github.com/ypatil-01" target="_blank">🐙 GitHub</a></div>
+</section>
+</main>
+
+<footer><div class="logo">ABHI<b>//</b>YO</div><p style="margin-top:12px">CODE • CREATE • EVOLVE</p><p style="font:.78rem monospace;color:#00e5ff;margin-top:8px">© 2026 • PORTFOLIO SYSTEM v2.0</p></footer>
+
+<script>
+const phrases=["Python • C Programming • Problem Solving","Web Development • SQL • Databases","Artificial Intelligence • Machine Learning","LEARN → BUILD → IMPROVE → EVOLVE"];
+let a=0,b=0,del=false;
+function type(){let w=phrases[a];document.getElementById('typing').textContent=w.slice(0,b);if(!del&&b<w.length)b++;else if(del&&b>0)b--;else if(!del){del=true;setTimeout(type,1200);return}else{del=false;a=(a+1)%phrases.length}setTimeout(type,del?28:58)}type();
+
+const c=document.getElementById('particles'),x=c.getContext('2d');let W,H,P=[];
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight;P=Array.from({length:Math.min(95,Math.floor(W/18))},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.7+.3,v:Math.random()*.35+.08}))}resize();addEventListener('resize',resize);
+function draw(){x.clearRect(0,0,W,H);for(const p of P){p.y-=p.v;if(p.y<0){p.y=H;p.x=Math.random()*W}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='rgba(0,229,255,.5)';x.fill()}requestAnimationFrame(draw)}draw();
+</script>
+</body>
+</html>
